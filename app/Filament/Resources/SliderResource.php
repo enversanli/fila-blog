@@ -26,7 +26,11 @@ class SliderResource extends Resource
                 Forms\Components\TextInput::make('title')->nullable(),
                 Forms\Components\Textarea::make('description')->nullable(),
                 Forms\Components\TextInput::make('alt_text')->nullable(),
-                Forms\Components\FileUpload::make('image')->nullable(),
+                Forms\Components\FileUpload::make('image')
+                    ->disk('sliders')
+                    ->directory('/')
+                    ->nullable()
+                    ->image(),
                 Forms\Components\DatePicker::make('start_date')->nullable(),
                 Forms\Components\DatePicker::make('end_date')->nullable(),
                 Forms\Components\TextInput::make('button')->nullable(),
