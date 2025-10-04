@@ -1,4 +1,4 @@
 <x-blog-layout>
     <x-slider-carousel />
-    <x-recent-posts />
+    <x-recent-blogs :count="5" />
 </x-blog-layout>
