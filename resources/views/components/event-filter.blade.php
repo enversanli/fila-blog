@@ -1,40 +1,53 @@
 <form method="GET" action="{{ route('events.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+
     <!-- City Select -->
-    <select name="city" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition">
-        <option value="" selected>Tümü</option>
-        @foreach($cities as $city)
-            <option value="{{ $city->slug }}" {{ request('city') == $city->slug ? 'selected' : '' }}>
-                {{ $city->name }}
-            </option>
-        @endforeach
-    </select>
+    <div>
+        <label for="city" class="block text-sm font-medium text-gray-700 mb-1">Şehir</label>
+        <select id="city" name="city" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition w-full">
+            <option value="" selected>Tümü</option>
+            @foreach($cities as $city)
+                <option value="{{ $city->slug }}" {{ request('city') == $city->slug ? 'selected' : '' }}>
+                    {{ $city->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
 
     <!-- Category Select -->
-    <select name="category" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition">
-        <option value="" selected>Tümü</option>
-        @foreach($categories as $category)
-            <option value="{{ $category->slug }}" {{ request('category') == $category->slug ? 'selected' : '' }}>
-                {{ $category->name }}
-            </option>
-        @endforeach
-    </select>
+    <div>
+        <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+        <select id="category" name="category" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition w-full">
+            <option value="" selected>Tümü</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->slug }}" {{ request('category') == $category->slug ? 'selected' : '' }}>
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
 
     <!-- Type Select -->
-    <select name="type" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition">
-        <option value="" selected>Tümü</option>
-        @foreach($types as $type)
-            <option value="{{ $type->slug }}" {{ request('type') == $type->slug ? 'selected' : '' }}>
-                {{ $type->name }}
-            </option>
-        @endforeach
-    </select>
+    <div>
+        <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Tür</label>
+        <select id="type" name="type" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition w-full">
+            <option value="" selected>Tümü</option>
+            @foreach($types as $type)
+                <option value="{{ $type->slug }}" {{ request('type') == $type->slug ? 'selected' : '' }}>
+                    {{ $type->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
 
     <!-- Price Filter -->
-    <select name="price" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition">
-        <option value="" selected>Tümü</option>
-        <option value="paid" {{ request('price') == 'paid' ? 'selected' : '' }}>Ücretli</option>
-        <option value="free" {{ request('price') == 'free' ? 'selected' : '' }}>Ücretsiz</option>
-    </select>
+    <div>
+        <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Fiyat</label>
+        <select id="price" name="price" class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-500 transition w-full">
+            <option value="" selected>Tümü</option>
+            <option value="paid" {{ request('price') == 'paid' ? 'selected' : '' }}>Ücretli</option>
+            <option value="free" {{ request('price') == 'free' ? 'selected' : '' }}>Ücretsiz</option>
+        </select>
+    </div>
 
     <!-- Buttons -->
     <div class="md:col-span-4 flex justify-between mt-4">

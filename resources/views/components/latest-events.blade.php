@@ -39,7 +39,7 @@
 
         <!-- Ortalanmış Tümünü Görüntüle Butonu -->
         <div class="flex justify-center mt-8">
-            <a href="{{ url('https://berlindeyiz.de/etkinlikler') }}" target="_blank"
+            <a href="{{ route('events.index') }}" target="_blank"
                class="inline-block px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition">
                 Tümünü Görüntüle
             </a>

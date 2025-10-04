@@ -15,7 +15,7 @@ class LatestEvents extends Component
     public function __construct()
     {
         // Replace with full URL if needed
-        $endpoint = url('https://backend.berlindeyiz.de/api/activities/son-eklenenler?count=6');
+        $endpoint = url('https://backend.berlindeyiz.de/api/activities/son-eklenenler?count=3');
 
         // Fetch JSON data from the endpoint
         $response = Http::get($endpoint);
