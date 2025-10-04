@@ -1,30 +1,52 @@
 @if($sliders->count())
-    <div id="sliderCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            @foreach($sliders as $index => $slider)
-                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @foreach($sliders as $slider)
+                <div class="swiper-slide relative">
                     @if($slider->image)
-                        <img src="{{ Storage::disk('sliders')->url($slider->image) }}" class="d-block w-100" alt="{{ $slider->title ?? 'Slider Image' }}">
+                        <img src="{{ Storage::disk('sliders')->url($slider->image) }}" class="w-full h-auto object-cover" alt="{{ $slider->title ?? 'Slider Image' }}">
                     @endif
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 text-white p-4 text-center">
                         @if($slider->title)
-                            <h5>{{ $slider->title }}</h5>
+                            <h2 class="text-2xl md:text-4xl font-bold mb-2">{{ $slider->title }}</h2>
                         @endif
                         @if($slider->description)
-                            <p>{{ $slider->description }}</p>
+                            <p class="mb-4">{{ $slider->description }}</p>
                         @endif
                         @if($slider->button)
-                            <a href="{{ $slider->button }}" class="btn btn-primary">Learn More</a>
+                            <a href="{{ $slider->button }}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white">Learn More</a>
                         @endif
                     </div>
                 </div>
             @endforeach
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#sliderCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#sliderCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+
+        <!-- Swiper Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 1,
+            });
+        });
+    </script>
 @endif
