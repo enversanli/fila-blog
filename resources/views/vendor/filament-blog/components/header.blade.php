@@ -17,6 +17,9 @@
                         <a href="/" class="font-semibold text-md hover:text-primary-600">
                             <span>Anasayfa</span>
                         </a>
+                        <a href="{{route('events.index')}}" class="font-semibold text-md hover:text-primary-600">
+                            <span>Etkinlikler</span>
+                        </a>
                         <a href="{{ route('filamentblog.post.index') }}" class="font-semibold text-md hover:text-primary-600">
                             <span>Faydalı İçerikler</span>
                         </a>
