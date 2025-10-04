@@ -33,7 +33,7 @@
     @else
     <div class="container  mx-auto">
         <div class="flex justify-center">
-            <p class="text-2xl font-semibold text-gray-300">No posts found</p>
+            <p class="text-2xl font-semibold text-gray-300">Gönderi Bulunamadı</p>
         </div>
     </div>
     @endif

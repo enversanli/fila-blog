@@ -14,7 +14,7 @@
                     @empty
                     <div class="mx-auto col-span-3">
                         <div class="flex items-center justify-center">
-                            <p class="text-2xl font-semibold text-gray-300">No posts found</p>
+                            <p class="text-2xl font-semibold text-gray-300">Sonuç Bulunamadı</p>
                         </div>
                     </div>
                 @endforelse

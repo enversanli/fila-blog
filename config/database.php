@@ -62,6 +62,20 @@ return [
             ]) : [],
         ],
 
+        'events' => [
+            'driver' => 'mysql',
+            'host' => env('DB_EVENTS_HOST', '127.0.0.1'),
+            'port' => env('DB_EVENTS_PORT', '3306'),
+            'database' => env('DB_EVENTS_DATABASE', 'forge'),
+            'username' => env('DB_EVENTS_USERNAME', 'forge'),
+            'password' => env('DB_EVENTS_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),

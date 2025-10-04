@@ -13,7 +13,7 @@
                     <x-blog-card :post="$post"/>
                 @empty
                     <div class="flex justify-center w-full">
-                        <h2 class="text-2xl font-semibold">No posts found</h2>
+                        <h2 class="text-2xl font-semibold">Sonuç Bulunamadı</h2>
                     </div>
                 @endforelse
             </div>

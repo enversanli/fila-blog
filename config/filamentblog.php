@@ -33,13 +33,13 @@ return [
         'foreign_key' => 'user_id',
         'columns' => [
             'name' => 'name',
-            'avatar' => 'profile_photo_path', // column name for avatar
+            'avatar' => 'profile_photo_path',
         ],
     ],
     'seo' => [
         'meta' => [
-            'title' => 'Filament Blog',
-            'description' => 'This is filament blog seo meta description',
+            'title' => 'Almanya Blog',
+            'description' => 'Almanya ve Avrupa genelinde yaşayan ve Türkçe konuşan insanlar için aradığınız her şey.',
             'keywords' => [],
         ],
     ],

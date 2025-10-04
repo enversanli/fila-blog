@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Blog Post Notification</title>
+    <title>Yeni Blog Yayınlandı</title>
     <style>
         /* Reset styles for email compatibility */
         body, p, h1, h2, h3, h4, h5, h6 {
@@ -81,10 +81,10 @@
     <div class="content">
         <h2>{{ $post->title }}</h2>
         <p>{!! Str::limit($post->body, 500) !!} </p>
-        <a href="{{route('filamentblog.post.show', ['post' => $post->slug])}}" class="btn">Read More</a>
+        <a href="{{route('filamentblog.post.show', ['post' => $post->slug])}}" class="btn">Okumaya Devam Et</a>
     </div>
     <div class="footer">
-        <p>Thank you for subscribing to our blog updates!</p>
+        <p>Bizi Takip Ettiğiniz İçin Teşekkürler!</p>
     </div>
 </div>
 </body>

@@ -2,7 +2,7 @@
     <section class="pb-16">
         <div class="container mx-auto">
             <div class="mb-10 flex gap-x-2 text-sm font-semibold">
-                <a href="{{ route('filamentblog.post.index') }}" class="opacity-60">Home</a>
+                <a href="{{ route('filamentblog.post.index') }}" class="opacity-60">Anasayfa</a>
                 <span class="opacity-30">/</span>
                 <a href="{{ route('filamentblog.post.all') }}" class="opacity-60">Blog</a>
                 <span class="opacity-30">/</span>
@@ -20,7 +20,7 @@
                                         <path fill="currentColor" d="M13 11H7a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2m4-4H7a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2m2-5H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h11.59l3.7 3.71A1 1 0 0 0 21 22a.84.84 0 0 0 .38-.08A1 1 0 0 0 22 21V5a3 3 0 0 0-3-3m1 16.59l-2.29-2.3A1 1 0 0 0 17 16H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1Z" />
                                     </svg>
                                 </div>
-                                <span class="text-xs font-semibold">COMMENTS</span>
+                                <span class="text-xs font-semibold">Yorumlar</span>
                             </button>
                             <div class="pt-5">
                                 {!! $shareButton?->html_code !!}
@@ -67,7 +67,7 @@
 
                                     @if($post->tags->count())
                                     <div class="pt-10">
-                                        <span class="mb-3 block font-semibold">Tags</span>
+                                        <span class="mb-3 block font-semibold">Etiketler</span>
                                         <div class="space-x-2 space-y-1">
                                             @foreach ($post->tags as $tag)
                                             <a href="{{ route('filamentblog.tag.post', ['tag' => $tag->slug]) }}" class="rounded-full border border-slate-300 px-3 py-1 text-sm font-medium font-medium text-black text-slate-600 hover:bg-slate-100">
@@ -83,7 +83,7 @@
                         @if($post->comments->count())
                         <div class="border-t-2 py-10">
                             <div class="mb-4">
-                                <h3 class="mb-2 text-2xl font-semibold">Comments</h3>
+                                <h3 class="mb-2 text-2xl font-semibold">Yorumlar</h3>
                             </div>
                             <div class="flex flex-col gap-y-6 divide-y">
                                 @foreach($post->comments as $comment)
