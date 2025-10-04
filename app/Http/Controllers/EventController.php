@@ -9,7 +9,13 @@ class EventController extends Controller
     public function index()
     {
         $events = ExternalEvent::where('approved', 1)
-            ->orderBy('date_from', 'desc')
+            ->orderByDesc('sponsored') // 1 → top
+            ->orderByRaw("CASE
+            WHEN status = 'ACTIVE' THEN 1
+            WHEN status = 'UPCOMING' THEN 2
+            ELSE 3
+        END") // custom sorting by status
+            ->orderByDesc('date_from') // newest first
             ->paginate(9);
 
         return view('events.index', compact('events'));
