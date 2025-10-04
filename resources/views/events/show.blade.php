@@ -9,12 +9,16 @@
             <p><strong>Tarih:</strong> {{ \Carbon\Carbon::parse($event->date_from)->format('d M Y') }}</p>
             @if($event->address)
                 <p><strong>Adres:</strong> {{ $event->address }}</p>
+                <p><strong>Şehir:</strong> {{ $event->city->name }}</p>
             @endif
         </div>
+
+        <x-event-meta :event="$event" />
 
         <div class="prose max-w-none text-gray-700">
             {!! $event->text !!}
         </div>
+
 
         <div class="mt-10">
             <a href="{{ route('events.index') }}"

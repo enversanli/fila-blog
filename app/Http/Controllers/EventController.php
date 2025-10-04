@@ -12,8 +12,7 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        $query = ExternalEvent::approved()
-            ->with(['city', 'category', 'type'])
+        $query = ExternalEvent::with(['city', 'category', 'type'])
             ->orderByDesc('sponsored')
             ->orderByRaw("FIELD(status, 'ACTIVE', 'UPCOMING', 'OUT_OF_DATE')")
             ->orderByDesc('date_from');
@@ -39,12 +38,12 @@ class EventController extends Controller
             });
         }
 
-        $events = $query->paginate(9)->appends($request->query());
+        $events = $query->where('type_id',1)->approved()->paginate(9);
 
         // Fetch filter data for dropdowns
         $cities = ExternalCities::orderBy('name')->get();
         $categories = EventCategory::orderBy('name')->get();
-        $types = EventType::orderBy('name')->get();
+        $types = EventType::orderBy('title')->get();
 
         return view('events.index', compact('events', 'cities', 'categories', 'types'));
     }

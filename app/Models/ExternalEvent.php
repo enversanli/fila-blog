@@ -9,6 +9,14 @@ class ExternalEvent extends Model
     protected $connection = 'events';
     protected $table = 'services';
     protected $guarded = [];
+    protected $casts = [
+        'meta' => 'array'
+    ];
+
+    public function city()
+    {
+        return $this->belongsTo(ExternalCities::class, 'city_id', 'id');
+    }
 
     public function category()
     {
