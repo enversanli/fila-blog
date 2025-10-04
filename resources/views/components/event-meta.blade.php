@@ -27,7 +27,7 @@
 @endif
 
 {{-- Action Links --}}
-@if($ticket || $phone || $mail)
+@if($ticket || $phone || $mail || $event->address)
     <div class="flex flex-wrap gap-3 mt-4 mb-4">
         @if($ticket)
             <a href="{{ $ticket }}" target="_blank"
