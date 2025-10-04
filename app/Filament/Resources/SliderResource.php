@@ -23,19 +23,13 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')
-                    ->image()
-                    ->directory('sliders')
-                    ->required(),
-                TextInput::make('alt_text')
-                    ->label('Alt Text')
-                    ->maxLength(255),
-                TextInput::make('title')
-                    ->label('Title')
-                    ->maxLength(255),
-                Textarea::make('description')
-                    ->label('Description')
-                    ->rows(4),
+                Forms\Components\TextInput::make('title')->nullable(),
+                Forms\Components\Textarea::make('description')->nullable(),
+                Forms\Components\TextInput::make('alt_text')->nullable(),
+                Forms\Components\FileUpload::make('image')->nullable(),
+                Forms\Components\DatePicker::make('start_date')->nullable(),
+                Forms\Components\DatePicker::make('end_date')->nullable(),
+                Forms\Components\TextInput::make('button')->nullable(),
             ]);
     }
 

@@ -14,7 +14,7 @@
                         @endif
                     </a>
                     <div class="hidden gap-x-10 sm:flex">
-                        <a href="{{ route('filamentblog.post.index') }}" class="font-semibold text-md hover:text-primary-600">
+                        <a href="/" class="font-semibold text-md hover:text-primary-600">
                             <span>Anasayfa</span>
                         </a>
                         <a href="{{ route('filamentblog.post.index') }}" class="font-semibold text-md hover:text-primary-600">
