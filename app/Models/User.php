@@ -53,4 +53,9 @@ class User extends Authenticatable
         // your conditional logic here
         return true;
     }
+
+    public function canAccessFilament(): bool
+    {
+        return true;
+    }
 }
