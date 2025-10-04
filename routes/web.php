@@ -17,5 +17,6 @@ Route::post('/blog/{post:slug}/yorum', [\Firefly\FilamentBlog\Http\Controllers\C
 
 Route::prefix('etkinlikler')->group(function () {
     Route::get('/', [\App\Http\Controllers\EventController::class, 'index'])->name('events.index');
+    Route::get('/{slug}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
 });
 
