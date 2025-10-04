@@ -3,13 +3,22 @@
     <div class="max-w-7xl mx-auto px-4 py-12">
         <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Tüm Etkinlikler</h1>
 
-       <x-event-filter :cities="$cities" :categories="$categories" :types="$types"/>
+        <x-event-filter :cities="$cities" :categories="$categories" :types="$types"/>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($events as $event)
+                @php
+                    // Determine the URL dynamically
+                    if(!empty($event->city) && strtolower($event->city->slug) === 'berlin') {
+                        $eventUrl = "https://berlindeyiz.de/etkinlikler/{$event->slug}";
+                    } else {
+                        $eventUrl = route('events.show', $event->slug);
+                    }
+                @endphp
+
                 <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-                    <a href="{{ route('events.show', $event->slug) }}">
-                        <img src="{{ $event->image_path()}}" alt="{{ $event->title }}"
+                    <a href="{{ $eventUrl }}" target="{{ strtolower($event->city->slug ?? '') === 'berlin' ? '_blank' : '_self' }}">
+                        <img src="{{ $event->image_path() }}" alt="{{ $event->title }}"
                              class="w-full h-56 object-cover">
                         <div class="p-5">
                             <h2 class="text-lg font-semibold text-gray-800 mb-1">{{ $event->title }}</h2>
@@ -33,5 +42,3 @@
         </div>
     </div>
 </x-blog-layout>
-
-
