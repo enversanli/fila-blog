@@ -262,7 +262,7 @@
         <div class="fixed bottom-0 left-0 z-50 h-20 w-full border-t border-gray-200 bg-white sm:hidden shadow-md">
             <div class="mx-auto grid h-full max-w-lg grid-cols-3 justify-items-center items-center font-medium">
                 <!-- Anasayfa -->
-                <a href="{{ route('filamentblog.post.index') }}"
+                <a href="/"
                    class="flex flex-col items-center justify-center px-2 py-1 hover:bg-gray-50 rounded transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mb-1 w-6" viewBox="0 0 256 256">
                         <path fill="currentColor"
