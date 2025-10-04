@@ -1,6 +1,6 @@
 <x-blog-layout>
     <div class="max-w-4xl mx-auto px-4 py-12">
-        <img src="https://backend.berlindeyiz.de/storage/{{ $event->image ?? 'default.jpg' }}" alt="{{ $event->title }}"
+        <img src="{{ $event->image_path()}}" alt="{{ $event->title }}"
              class="w-full rounded-2xl mb-8 shadow">
 
         <h1 class="text-3xl font-bold mb-4 text-gray-900">{{ $event->title }}</h1>

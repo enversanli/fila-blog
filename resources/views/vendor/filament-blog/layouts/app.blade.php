@@ -5,8 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{ $setting?->faviconImage }}" type="image/x-icon" />
-    {!! \Firefly\FilamentBlog\Facades\SEOMeta::generate() !!}
+{{--    <link rel="icon" href="{{ $setting?->faviconImage }}" type="image/x-icon" />--}}
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('favicons/safari-pinned-tab.svg') }}" color="#f97316">
+    <meta name="msapplication-TileColor" content="#f97316">
+    <meta name="theme-color" content="#f97316">
+
+
+{!! \Firefly\FilamentBlog\Facades\SEOMeta::generate() !!}
     {!! $setting?->google_console_code !!}
     {!! $setting?->google_analytic_code !!}
     {!! $setting?->google_adsense_code !!}

@@ -5,13 +5,13 @@
             <div class="flex justify-between gap-x-4">
                 <div class="flex items-center gap-x-10">
                     <a href="{{config('filamentblog.route.home.url') ?? config('app.url')}}">
-                        @if($logo)
-                        <img src="{{ $logo }}" alt="{{ $title }}" class="max-h-[60px]" />
-                        @else
-                        <strong class="text-2xl  text-primary-600">
-                            {{ $title ?: 'Firefly Blog' }}
-                        </strong>
-                        @endif
+
+                        <img src="{{ '/logo.png'}}" alt="{{ $title }}" class="max-h-[99px]" />
+
+{{--                        <strong class="text-2xl  text-primary-600">--}}
+{{--                            {{ $title ?: 'ALMANYADAYIZ' }}--}}
+{{--                        </strong>--}}
+
                     </a>
                     <div class="hidden gap-x-10 sm:flex">
                         <a href="/" class="font-semibold text-md hover:text-primary-600">

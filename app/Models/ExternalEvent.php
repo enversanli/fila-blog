@@ -42,4 +42,8 @@ class ExternalEvent extends Model
     {
         return $query->where('sponsored', 1);
     }
+
+    public function image_path(){
+        return $this->logo ? 'https://backend.berlindeyiz.de/storage/' . $this->logo : '/images/default.png';
+    }
 }

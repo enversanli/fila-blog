@@ -9,7 +9,7 @@
             @foreach($events as $event)
                 <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
                     <a href="{{ route('events.show', $event->slug) }}">
-                        <img src="https://backend.berlindeyiz.de/storage/{{$event->image ?? 'default.jpg' }}" alt="{{ $event->title }}"
+                        <img src="{{ $event->image_path()}}" alt="{{ $event->title }}"
                              class="w-full h-56 object-cover">
                         <div class="p-5">
                             <h2 class="text-lg font-semibold text-gray-800 mb-1">{{ $event->title }}</h2>

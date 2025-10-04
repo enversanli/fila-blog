@@ -121,7 +121,7 @@ return new class () extends Migration {
             $table->string('title', 155)->nullable();
             $table->text('description')->nullable();
             $table->string('logo')->nullable();
-            $table->string('favicon')->nullable();
+            $table->string('favicons')->nullable();
             $table->string('organization_name')->nullable();
             $table->tinyText('google_console_code')->nullable();
             $table->text('google_analytic_code')->nullable();
