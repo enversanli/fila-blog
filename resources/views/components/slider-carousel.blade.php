@@ -2,9 +2,11 @@
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach($sliders as $slider)
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative h-96 md:h-[500px] lg:h-[600px] overflow-hidden">
                     @if($slider->image)
-                        <img src="{{ Storage::disk('sliders')->url($slider->image) }}" class="w-full h-auto object-cover" alt="{{ $slider->title ?? 'Slider Image' }}">
+                        <img src="{{ Storage::disk('sliders')->url($slider->image) }}"
+                             class="w-full h-full object-cover"
+                             alt="{{ $slider->title ?? 'Slider Image' }}">
                     @endif
                     <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 text-white p-4 text-center">
                         @if($slider->title)
