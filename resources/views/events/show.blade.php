@@ -1,3 +1,7 @@
+@section('head')
+    <link rel="canonical" href="https://www.berlindeyiz.de/etkinlikler/{{$event->slug}}">
+@endsection
+
 <x-blog-layout>
     <div class="max-w-4xl mx-auto px-4 py-12">
         <img src="{{ $event->image_path()}}" alt="{{ $event->title }}"

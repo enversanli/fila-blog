@@ -16,7 +16,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber")</title>
-
+        @yield('head')
     <!-- Meta Description -->
     <meta name="description" content="@yield('description', 'Almanya\'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!')">
 
