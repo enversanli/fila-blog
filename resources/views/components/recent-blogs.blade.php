@@ -1,5 +1,5 @@
 @if($posts->count())
-    <div class="container mx-auto px-4 mt-4">
+    <div class="container mx-auto px-4 mt-4 mb-4">
         <h2 class="text-3xl font-bold mb-6">{{ $sectTitle }}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
             @foreach($posts as $post)
@@ -22,6 +22,14 @@
                     </div>
                 </a>
             @endforeach
+        </div>
+
+        <!-- Button to see all posts -->
+        <div class="mt-10 text-center">
+            <a href="{{ route('filamentblog.post.all') }}"
+               class="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-orange-600 transition font-semibold">
+                Tüm İçerikleri Gör
+            </a>
         </div>
     </div>
 @else
