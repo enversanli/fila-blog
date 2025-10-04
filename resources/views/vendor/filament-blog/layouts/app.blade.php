@@ -189,24 +189,24 @@
                         </div>
                         <div class="grid sm:grid-cols-2 col-span-2">
                             <div class="md:flex md:flex-col grid gap-3 py-3 text-sm font-medium">
-                                <h4 class="text-xl font-semibold">Quick Links</h4>
+                                <h4 class="text-xl font-semibold">Hızlı Linkler</h4>
                                 @forelse($setting->quick_links ?? [] as $link)
                                     <a href="{{ $link['url'] }}"
                                         class="transition duration-300 will-change-transform hover:translate-x-1 hover:text-black motion-reduce:transition-none motion-reduce:hover:transform-none">
                                         {{ $link['label'] }}
                                     </a>
                                 @empty
-                                    <p class="font-semibold text-gray-300">No links found</p>
+                                    <p class="font-semibold text-gray-300">Link Bulunamadı</p>
                                 @endforelse
                             </div>
                             <div class="flex flex-col items-start gap-3 text-sm font-medium">
                                 <div class="relative overflow-hidden rounded-2xl bg-slate-100 px-6 py-4 text-black">
                                     <div class="mb-3 pb-2 text-xl font-semibold">
-                                        Subscribe to our Newsletter
+                                        Bildirimlere Abone Olun
                                     </div>
                                     <div>
                                         <p class="mb-3 block text-slate-500">
-                                            Subscribe to our mailing list to receive daily updates direct to your inbox!
+                                            Gelişmelerden anında haberdar olmak için abone olun!
                                         </p>
                                         <div>
                                             <form method="post" action="{{ route('filamentblog.post.subscribe') }}">
@@ -219,7 +219,7 @@
                                                     <input autocomplete="email"
                                                         class="flex w-full items-center justify-between rounded-xl border bg-white px-6 py-5 font-medium text-black outline-none placeholder:text-black"
                                                         name="email" value="{{ old('email') }}"
-                                                        placeholder="Enter your email" type="email">
+                                                        placeholder="Mail adresinizi girin" type="email">
                                                     <button type="submit"
                                                         class="absolute right-4 top-1/2 -translate-y-1/2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="text-primary h-8 w-8"
@@ -244,7 +244,7 @@
                 </div>
                 <div class="mt-7 flex flex-wrap items-start justify-center gap-10 border-t border-slate-200 pt-5">
                     <div class="text-hurricane/50 text-sm font-medium">
-                        © 2024 {{ $setting->organization_name ?? 'Firefly Blog' }}. All rights reserved.
+                        © 2024 {{ $setting->organization_name ?? 'Berlindeyiz' }}. All rights reserved.
                     </div>
                 </div>
             </div>
@@ -265,7 +265,7 @@
                         <path fill="currentColor"
                             d="M216 40H40a16 16 0 0 0-16 16v160a8 8 0 0 0 11.58 7.15L64 208.94l28.42 14.21a8 8 0 0 0 7.16 0L128 208.94l28.42 14.21a8 8 0 0 0 7.16 0L192 208.94l28.42 14.21A8 8 0 0 0 232 216V56a16 16 0 0 0-16-16m0 163.06l-20.42-10.22a8 8 0 0 0-7.16 0L160 207.06l-28.42-14.22a8 8 0 0 0-7.16 0L96 207.06l-28.42-14.22a8 8 0 0 0-7.16 0L40 203.06V56h176ZM136 112a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8m0 32a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16h-48a8 8 0 0 1-8-8m-72 24h48a8 8 0 0 0 8-8V96a8 8 0 0 0-8-8H64a8 8 0 0 0-8 8v64a8 8 0 0 0 8 8m8-64h32v48H72Z" />
                     </svg>
-                    <span class="text-sm text-gray-500 group-hover:text-blue-600 dark:text-gray-400">All Posts</span>
+                    <span class="text-sm text-gray-500 group-hover:text-blue-600 dark:text-gray-400">Tüm GÖnderiler</span>
                 </a>
             </div>
         </div>

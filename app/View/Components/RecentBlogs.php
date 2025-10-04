@@ -10,14 +10,17 @@ use Illuminate\View\Component;
 class RecentBlogs extends Component
 {
     public $posts;
+    public $sectTitle;
 
-    public function __construct($count = 5)
+    public function __construct($count = 5, $title = 'Son Eklenenler')
     {
         $this->posts = Post::query()
             ->published()
             ->latest()
             ->take($count)
             ->get();
+
+        $this->sectTitle = $title;
     }
 
     /**
