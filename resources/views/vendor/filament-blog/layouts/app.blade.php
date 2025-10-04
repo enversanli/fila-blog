@@ -1,10 +1,29 @@
-<!DOCTYPE html>
+@php
+    $defaultTitle = "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
+    $defaultDescription = "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!";
+@endphp
+
+@section('title', $pageTitle ?? $defaultTitle)
+@section('description', $pageDescription ?? $defaultDescription)
+
+
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>@yield('title', "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber")</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="@yield('description', 'Almanya\'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!')">
+
+    <!-- Meta Keywords (optional, mostly SEO legacy) -->
+    <meta name="keywords" content="Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg">
+
+
 {{--    <link rel="icon" href="{{ $setting?->faviconImage }}" type="image/x-icon" />--}}
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
