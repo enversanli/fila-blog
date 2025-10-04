@@ -12,7 +12,7 @@ class RecentBlogs extends Component
     public $posts;
     public $sectTitle;
 
-    public function __construct($count = 5, $title = 'Son Eklenenler')
+    public function __construct($count = 5, $title = 'Son Eklenen İçerikler')
     {
         $this->posts = Post::query()
             ->published()
