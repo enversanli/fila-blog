@@ -10,6 +10,8 @@ use Illuminate\View\Component;
 
 class SliderCarousel extends Component
 {
+    public $sliders;
+
     /**
      * Create a new component instance.
      */
