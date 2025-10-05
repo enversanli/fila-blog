@@ -5,7 +5,7 @@
 @section('title', ($event->title . ' - Almanya\'ya Dair Her Şey | Almanyadayız'))
 @section('description', ($event->title . ' etkinliğe dair tüm detaylar, bilet satış bilgileri, konser ücreti ve daha fazlası.'))
 @section('keywords', $event->meta['keywords'] ?? "almanya etkinlikleri, almanyada yaşam, berlin etkinlikleri, berlin türk etkinlikleri, festivaller, kutlamalar")
-
+@section('og_image', $event->logo)
 
 <x-blog-layout>
     <div class="max-w-4xl mx-auto px-4 py-12">

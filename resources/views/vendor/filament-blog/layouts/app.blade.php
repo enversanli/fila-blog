@@ -34,6 +34,19 @@
     <meta name="msapplication-TileColor" content="#f97316">
     <meta name="theme-color" content="#f97316">
 
+    {{-- Open Graph (Facebook, WhatsApp, LinkedIn) --}}
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@yield('title', $defaultTitle)">
+    <meta property="og:description" content="@yield('description', $defaultDescription)">
+    <meta property="og:image" content="@yield('og_image', '/images/default.png')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Almanyadayiz.de">
+
+    {{-- Twitter Card (for X/Twitter) --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', $defaultTitle)">
+    <meta name="twitter:description" content="@yield('description', $defaultDescription)">
+    <meta name="twitter:image" content="@yield('og_image', '/images/default.png')">
 
 {!! \Firefly\FilamentBlog\Facades\SEOMeta::generate() !!}
     {!! $setting?->google_console_code !!}

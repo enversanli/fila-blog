@@ -3,6 +3,8 @@
 
 @section('keywords', implode(',', $post->seoDetail->keywords) ?? '')
 
+@section('og_image', \Illuminate\Support\Facades\Storage::disk('public')->url($post->cover_photo_path))
+
 <x-blog-layout>
     <section class="pb-16">
         <div class="container mx-auto">
