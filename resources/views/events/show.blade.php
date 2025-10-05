@@ -6,7 +6,7 @@
 {{--@php--}}
 {{--dd($event);--}}
 {{--@endphp--}}
-@section('title', $event->title)
+@section('title', $event->title . ' Almanya\'ya Dair Her Şey | Almanyadayız)
 @section('description', ($event->title . ' etkinliğe dair tüm detaylar, bilet satış bilgileri, konser ücreti ve daha fazlası.'))
 @section('keywords', $event->meta['keywords'] ?? "almanya etkinlikleri, almanyada yaşam, berlin etkinlikleri, berlin türk etkinlikleri, festivaller, kutlamalar")
 
