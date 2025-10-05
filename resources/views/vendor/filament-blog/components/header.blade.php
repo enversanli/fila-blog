@@ -34,6 +34,9 @@
                                 <x-blog-header-category />
                             </div>
                         </div>
+                        <a href="{{ route('contact') }}" class="font-semibold text-md hover:text-primary-600">
+                            <span>İletişim</span>
+                        </a>
                     </div>
                 </div>
                 <div class="flex items-center ml-auto gap-x-10">
