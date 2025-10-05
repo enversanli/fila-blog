@@ -6,8 +6,8 @@
 {{--@php--}}
 {{--dd($event);--}}
 {{--@endphp--}}
-@section('title', $event->meta['meta_title'] ?? $event->title)
-@section('description', $event->meta['seo_description'] ?? "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!")
+@section('title', $event->title)
+@section('description', ($event->title . ' etkinliğe dair tüm detaylar, bilet satış bilgileri, konser ücreti ve daha fazlası.'))
 @section('keywords', $event->meta['keywords'] ?? "almanya etkinlikleri, almanyada yaşam, berlin etkinlikleri, berlin türk etkinlikleri, festivaller, kutlamalar")
 
 
