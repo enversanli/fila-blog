@@ -1,11 +1,8 @@
 @php
     $defaultTitle = "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
     $defaultDescription = "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!";
+    $defaultKeywords = 'Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg';
 @endphp
-
-@section('title', $pageTitle ?? $defaultTitle)
-@section('description', $pageDescription ?? $defaultDescription)
-
 
     <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -15,14 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber")</title>
-        @yield('head')
-    <!-- Meta Description -->
-    <meta name="description" content="@yield('description', 'Almanya\'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!')">
+    <title>@yield('title', $defaultTitle)</title>
+    <meta name="description" content="@yield('description', $defaultDescription)">
+    <meta name="keywords" content="@yield('keywords', $defaultKeywords)">
 
-    <!-- Meta Keywords (optional, mostly SEO legacy) -->
-    <meta name="keywords" content="Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg">
-
+@yield('head')
 
 {{--    <link rel="icon" href="{{ $setting?->faviconImage }}" type="image/x-icon" />--}}
     <!-- Favicon -->
@@ -48,7 +42,7 @@
     <meta name="twitter:description" content="@yield('description', $defaultDescription)">
     <meta name="twitter:image" content="@yield('og_image', '/images/default.png')">
 
-{!! \Firefly\FilamentBlog\Facades\SEOMeta::generate() !!}
+{{--{!! \Firefly\FilamentBlog\Facades\SEOMeta::generate() !!}--}}
     {!! $setting?->google_console_code !!}
     {!! $setting?->google_analytic_code !!}
     {!! $setting?->google_adsense_code !!}
