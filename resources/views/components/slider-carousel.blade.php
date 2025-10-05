@@ -16,7 +16,7 @@
                             <p class="mb-4">{{ $slider->description }}</p>
                         @endif
                         @if($slider->button)
-                            <a href="{{ $slider->button }}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white">Learn More</a>
+                            <a href="{{ $slider->button }}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white">Detayları Görüntüle</a>
                         @endif
                     </div>
                 </div>
