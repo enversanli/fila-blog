@@ -1,7 +1,7 @@
 @section('title', $event->seoDetail->title ?? $post->title)
 @section('description', $post->seoDetail->description ?? "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!")
 
-@section('keywords', implode(',', $post->seoDetail->keywords) ?? '');
+@section('keywords', implode(',', $post->seoDetail->keywords) ?? '')
 
 <x-blog-layout>
     <section class="pb-16">
