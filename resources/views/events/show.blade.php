@@ -2,6 +2,15 @@
     <link rel="canonical" href="https://www.berlindeyiz.de/etkinlikler/{{$event->slug}}">
 @endsection
 
+
+{{--@php--}}
+{{--dd($event);--}}
+{{--@endphp--}}
+@section('title', $event->meta['meta_title'] ?? $event->title)
+@section('description', $event->meta['seo_description'] ?? "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!")
+@section('keywords', $event->meta['keywords'] ?? "almanya etkinlikleri, almanyada yaşam, berlin etkinlikleri, berlin türk etkinlikleri, festivaller, kutlamalar")
+
+
 <x-blog-layout>
     <div class="max-w-4xl mx-auto px-4 py-12">
         <img src="{{ $event->image_path()}}" alt="{{ $event->title }}"
