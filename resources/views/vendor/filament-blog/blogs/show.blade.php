@@ -1,6 +1,6 @@
 @section('title', ($post->seoDetail->title ?? $post->title) . " - Almanya'ya Dair Her Şey!")
 @section('description', $post->seoDetail->description ?? "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!")
-@section('keywords', $post->seoDetail->keywords ? implode(',', $post->seoDetail->keywords) : '')
+@section('keywords', isset($post->seoDetail->keywords) && !is_null($post->seoDetail->keywords)  ? implode(',', $post->seoDetail->keywords) : '')
 @section('og_image', \Illuminate\Support\Facades\Storage::disk('public')->url($post->cover_photo_path))
 
 <x-blog-layout>
