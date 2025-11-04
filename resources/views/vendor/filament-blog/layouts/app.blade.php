@@ -1,7 +1,18 @@
 @php
-    $defaultTitle = "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
-    $defaultDescription = "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!";
-    $defaultKeywords = 'Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg';
+    use Illuminate\Support\Facades\Request;
+       $configSeo = config('filamentblog.seo.meta');
+
+       $defaultTitle = "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
+       $defaultDescription = "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!";
+       $defaultKeywords = 'Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg';
+
+      if (Request::is('blog') || Request::is('blog/*')) {
+           $defaultTitle = $configSeo['title'] ?? $defaultTitle;
+           $defaultDescription = $configSeo['description'] ?? $defaultDescription;
+           $defaultKeywords = !empty($configSeo['keywords'])
+               ? implode(', ', $configSeo['keywords'])
+               : $defaultKeywords;
+       }
 @endphp
 
     <!DOCTYPE html>
