@@ -1,4 +1,4 @@
-@section('title', "Almanya Geneli Gerçekleşen Etkinlikler, Konserler, Festivaller ve Daha Fazlası! - Almanyadayız")
+@section('title', "Almanya Geneli Gerçekleşen Türk Konserleri ve Türkçe Etkinlikeri Keşfedin! - Almanyadayız")
 @section('description', "Almanya genelinde gerçekleşen 2026 Türk konserleri, festivaller, çocuk etkinlikleri ve daha fazlasını kolayca bulun. Sizde Türk etkinliklerine katılın.")
 
 <x-blog-layout>

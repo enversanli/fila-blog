@@ -38,12 +38,11 @@ return [
     ],
     'seo' => [
         'meta' => [
-            'title' => 'Almanya Blog',
-            'description' => 'Almanya ve Avrupa genelinde yaşayan ve Türkçe konuşan insanlar için aradığınız her şey.',
-            'keywords' => [],
+            'title' => 'Blog | Berlindeyiz',
+            'description' => 'Berlin ve Almanya genelinde yaşayan Türkler için güncel içerikler, rehber yazılar ve etkinlik haberleri.',
+            'keywords' => ['Berlin', 'Almanya', 'Türkçe', 'Etkinlikler', 'Rehber'],
         ],
     ],
-
     'recaptcha' => [
         'enabled' => false, // true or false
         'site_key' => env('RECAPTCHA_SITE_KEY'),
