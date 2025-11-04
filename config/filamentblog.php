@@ -38,9 +38,9 @@ return [
     ],
     'seo' => [
         'meta' => [
-            'title' => 'Blog | Berlindeyiz',
-            'description' => 'Berlin ve Almanya genelinde yaşayan Türkler için güncel içerikler, rehber yazılar ve etkinlik haberleri.',
-            'keywords' => ['Berlin', 'Almanya', 'Türkçe', 'Etkinlikler', 'Rehber'],
+            'title' => 'Faydalı İçerikler | Almanyadayız',
+            'description' => 'Almanya genelinde yaşayan Türkler için güncel içerikler, rehber yazılar ve etkinlik haberleri.',
+            'keywords' => ['Berlin', 'Almanya', 'Türkçe', 'Etkinlikler', 'Rehber', '2026 Türk Konserleri'],
         ],
     ],
     'recaptcha' => [
