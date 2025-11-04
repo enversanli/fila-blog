@@ -1,3 +1,6 @@
+@section('title', "Soru, Görüş ve Önerileriniz İçin Bize Ulaşın - Almanyadayız")
+@section('description', "Almanya'ya dair her konuda bizimle iletişime geçebilir, platformlarımıza dair daha fazla bilgi alabilirsiniz.")
+
 <x-blog-layout>
     <section class="min-h-screen bg-gray-50 flex flex-col justify-center py-20 relative overflow-hidden">
         <!-- Decorative background circles -->

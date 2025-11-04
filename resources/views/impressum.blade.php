@@ -1,3 +1,6 @@
+@section('title', "Impressum - Almanyadayız")
+@section('description', "Impressum üzerindeki bilgilerden platformlarımızın durumuna ve kişi bilgilerine dair daha fazla bilgi edinin.")
+
 <x-blog-layout>
     <div class="container mx-auto px-4 py-10">
         <h1 class="text-4xl font-bold mb-8 text-center">📄 Impressum / Legal Notice / Yasal Uyarı</h1>

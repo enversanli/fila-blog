@@ -1,3 +1,6 @@
+@section('title', "Almanya Geneli Gerçekleşen Etkinlikler, Konserler, Festivaller ve Daha Fazlası! - Almanyadayız")
+@section('description', "Almanya genelinde gerçekleşen 2026 Türk konserleri, festivaller, çocuk etkinlikleri ve daha fazlasını kolayca bulun. Sizde Türk etkinliklerine katılın.")
+
 <x-blog-layout>
 
     <div class="max-w-7xl mx-auto px-4 py-12">
