@@ -2,9 +2,23 @@
     <link rel="canonical" href="https://www.berlindeyiz.de/etkinlikler/{{$event->slug}}">
 @endsection
 
-@section('title', ($event->title . ' - Almanya\'ya Dair Her Şey | Almanyadayız'))
-@section('description', ($event->title . ' etkinliğe dair tüm detaylar, bilet satış bilgileri, konser ücreti ve daha fazlası.'))
-@section('keywords', $event->meta['keywords'] ?? "almanya etkinlikleri, almanyada yaşam, berlin etkinlikleri, berlin türk etkinlikleri, festivaller, kutlamalar")
+@php
+    $isBerlin = str_contains(request()->getHost(), 'berlindeyiz.de');
+    $siteName = $isBerlin ? 'Berlindeyiz' : 'Almanyadayız';
+    $siteSlogan = $isBerlin ? 'Berlin Rehberi' : 'Almanya\'ya Dair Her Şey';
+
+    // Varsayılan anahtar kelimeleri domaine göre seçiyoruz
+    $defaultKeywords = $isBerlin
+        ? "berlin etkinlikleri, berlin türk etkinlikleri, berlin konserleri, kreuzberg etkinlik, berlin yaşam"
+        : "almanya etkinlikleri, almanyada yaşam, türk konserleri almanya, festivaller, gurbetçi rehberi";
+@endphp
+
+@section('title', $event->title . ' - ' . $siteSlogan . ' | ' . $siteName)
+
+@section('description', $event->title . ' etkinliğine dair tüm detaylar, bilet satış bilgileri, konum ve daha fazlası ' . $siteName . ' güvencesiyle.')
+
+@section('keywords', $event->meta['keywords'] ?? $defaultKeywords)
+
 @section('og_image', $event->logo)
 
 <x-blog-layout>
