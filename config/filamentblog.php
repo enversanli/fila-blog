@@ -37,11 +37,18 @@ return [
         ],
     ],
     'seo' => [
-        'meta' => [
-            'title' => 'Faydalı İçerikler | Almanyadayız',
-            'description' => 'Almanya genelinde yaşayan Türkler için güncel içerikler, rehber yazılar ve etkinlik haberleri.',
-            'keywords' => ['Berlin', 'Almanya', 'Türkçe', 'Etkinlikler', 'Rehber', '2026 Türk Konserleri'],
-        ],
+        'meta' => match (request()?->getHost()) {
+            'blog.berlindeyiz.de' => [
+                'title' => 'Berlin Rehberi | Berlindeyiz',
+                'description' => 'Berlin\'de yaşam, Türk etkinlikleri, konserler, çocuk etkinlikleri ve şehir rehberi.',
+                'keywords' => ['Berlin', 'Berlin Etkinlik', 'Berlin Türkler', 'Berlin Konserleri 2026'],
+            ],
+            default => [
+                'title' => 'Faydalı İçerikler | Almanyadayız',
+                'description' => 'Almanya genelinde yaşayan Türkler için güncel içerikler ve rehber yazılar.',
+                'keywords' => ['Almanya', 'Türkçe Rehber', 'Almanya Etkinlik', 'Gurbetçi Rehberi'],
+            ],
+        },
     ],
     'recaptcha' => [
         'enabled' => false, // true or false
