@@ -1,19 +1,37 @@
 @php
     use Illuminate\Support\Facades\Request;
-       $configSeo = config('filamentblog.seo.meta');
 
-       $defaultTitle = "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
-       $defaultDescription = "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!";
-       $defaultKeywords = 'Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler, Berlin, Münih, Hamburg';
+    $host = Request::getHost();
+    $isBerlin = str_contains($host, 'berlindeyiz.de');
+    $configSeo = config('filamentblog.seo.meta');
 
-      if (Request::is('blog') || Request::is('blog/*')) {
-           $defaultTitle = $configSeo['title'] ?? $defaultTitle;
-           $defaultDescription = $configSeo['description'] ?? $defaultDescription;
-           $defaultKeywords = !empty($configSeo['keywords'])
-               ? implode(', ', $configSeo['keywords'])
-               : $defaultKeywords;
-       }
+    $siteName = $isBerlin ? 'BerlinDeyiz' : "Almanya'dayız";
+
+    $defaultTitle = $isBerlin
+        ? "BerlinDeyiz – Berlin'deki Etkinlikler, Haberler ve Şehir Rehberi"
+        : "Almanya'dayız – Almanya ve Avrupa'daki Etkinlikler, Haberler ve Rehber";
+
+    $defaultDescription = $isBerlin
+        ? "BerlinDeyiz, Berlin genelindeki etkinlikleri, şehre özel güncel haberleri ve faydalı rehberleri Türkçe olarak sunar. Berlin yaşamına dair her şeyi keşfedin!"
+        : "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller ve rehberleri keşfedin!";
+
+    $defaultKeywords = $isBerlin
+        ? 'Berlin, Etkinlikler, Haberler, Konserler, Kreuzberg, Mitte, Berlin Rehberi, Türkçe'
+        : 'Almanya, Avrupa, Etkinlikler, Haberler, Konserler, Festivaller, Rehber, Türkçe, Sosyal Etkinlikler';
+
+    if (Request::is('blog') || Request::is('blog/*')) {
+        $defaultTitle = $configSeo['title'] ?? $defaultTitle;
+        $defaultDescription = $configSeo['description'] ?? $defaultDescription;
+        $defaultKeywords = !empty($configSeo['keywords'])
+            ? (is_array($configSeo['keywords']) ? implode(', ', $configSeo['keywords']) : $configSeo['keywords'])
+            : $defaultKeywords;
+    }
 @endphp
+
+{{-- Head bölümünde kullanım örneği --}}
+<title>@yield('title', $defaultTitle)</title>
+<meta name="description" content="@yield('description', $defaultDescription)">
+<meta name="keywords" content="@yield('keywords', $defaultKeywords)">
 
     <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
