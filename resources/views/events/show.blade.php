@@ -7,7 +7,6 @@
     $siteName = $isBerlin ? 'Berlindeyiz' : 'Almanyadayız';
     $siteSlogan = $isBerlin ? 'Berlin Rehberi' : 'Almanya\'ya Dair Her Şey';
 
-    // Varsayılan anahtar kelimeleri domaine göre seçiyoruz
     $defaultKeywords = $isBerlin
         ? "berlin etkinlikleri, berlin türk etkinlikleri, berlin konserleri, kreuzberg etkinlik, berlin yaşam"
         : "almanya etkinlikleri, almanyada yaşam, türk konserleri almanya, festivaller, gurbetçi rehberi";

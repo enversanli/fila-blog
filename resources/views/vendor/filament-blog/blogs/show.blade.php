@@ -1,8 +1,20 @@
-@section('title', ($post->seoDetail->title ?? $post->title) . " - Almanya'ya Dair Her Şey!")
-@section('description', $post->seoDetail->description ?? "Almanya'dayız, Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe olarak sunar. Konserler, festivaller, sosyal etkinlikler ve rehber içeriklerini keşfedin!")
-@section('keywords', isset($post->seoDetail->keywords) && !is_null($post->seoDetail->keywords)  ? implode(',', $post->seoDetail->keywords) : '')
-@section('og_image', \Illuminate\Support\Facades\Storage::disk('public')->url($post->cover_photo_path))
+@php
+    $isBerlin = str_contains(request()->getHost(), 'berlindeyiz.de');
+    $siteName = $isBerlin ? 'BerlinDeyiz' : 'AlmanyaDayız';
+    $siteSlogan = $isBerlin ? 'Berlin Rehberi' : 'Almanya\'ya Dair Her Şey!';
 
+    $defaultDesc = $isBerlin
+        ? "BerlinDeyiz; Berlin'deki etkinlikleri, şehre özel güncel haberleri ve faydalı rehberleri Türkçe sunar. Berlin yaşamını bizimle keşfedin!"
+        : "AlmanyaDayız; Almanya ve Avrupa genelindeki etkinlikleri, güncel haberleri ve faydalı içerikleri Türkçe sunar. Konserler ve rehberleri keşfedin!";
+@endphp
+
+@section('title', ($post->seoDetail->title ?? $post->title) . " - " . $siteSlogan)
+
+@section('description', $post->seoDetail->description ?? $defaultDesc)
+
+@section('keywords', isset($post->seoDetail->keywords) && !is_null($post->seoDetail->keywords) ? implode(',', $post->seoDetail->keywords) : 'almanya, haberler, etkinlikler, rehber, ' . ($isBerlin ? 'berlin' : 'avrupa'))
+
+@section('og_image', \Illuminate\Support\Facades\Storage::disk('public')->url($post->cover_photo_path))
 <x-blog-layout>
     <section class="pb-16">
         <div class="container mx-auto">
