@@ -37,7 +37,7 @@ return [
         ],
     ],
     'seo' => [
-        'meta' => match (request()?->getHost()) {
+        'meta' => match ($_SERVER['HTTP_HOST'] ?? 'default') {
             'blog.berlindeyiz.de' => [
                 'title' => 'Berlin Rehberi | Berlindeyiz',
                 'description' => 'Berlin\'de yaşam, Türk etkinlikleri, konserler, çocuk etkinlikleri ve şehir rehberi.',
