@@ -41,7 +41,6 @@
             {!! $event->text !!}
         </div>
 
-
         <div class="mt-10">
             <a href="{{ route('events.index') }}"
                class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
@@ -49,4 +48,7 @@
             </a>
         </div>
     </div>
+
+    <x-latest-events />
+
 </x-blog-layout>
