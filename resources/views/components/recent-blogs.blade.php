@@ -38,7 +38,7 @@
 
                     <div class="p-6 flex flex-col flex-1">
                         @if($post->sub_title)
-                            <span class="text-xs font-semibold tracking-wider text-blue-600 uppercase mb-2">
+                            <span class="text-xs font-semibold tracking-wider mb-2">
                                 {{ $post->sub_title }}
                             </span>
                         @endif
