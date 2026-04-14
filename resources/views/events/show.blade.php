@@ -1,5 +1,11 @@
 @section('head')
-    <link rel="canonical" href="https://www.berlindeyiz.de/etkinlikler/{{$event->slug}}">
+    @php
+        $isBerlinEvent = !empty($event->city) && strtolower($event->city->slug) === 'berlin';
+        $canonicalUrl = $isBerlinEvent
+            ? "https://www.berlindeyiz.de/etkinlikler/{$event->slug}"
+            : url("/etkinlikler/{$event->slug}");
+    @endphp
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 @endsection
 
 @php

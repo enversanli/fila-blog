@@ -51,7 +51,17 @@ class EventController extends Controller
 
     public function show($slug)
     {
-        $event = ExternalEvent::where('slug', $slug)->firstOrFail();
+        $event = ExternalEvent::with('city')->where('slug', $slug)->firstOrFail();
+
+        // If this is a Berlin event and we're NOT on berlindeyiz.de, redirect to avoid duplicate content
+        if (
+            !str_contains(request()->getHost(), 'berlindeyiz.de')
+            && !empty($event->city)
+            && strtolower($event->city->slug) === 'berlin'
+        ) {
+            return redirect("https://berlindeyiz.de/etkinlikler/{$slug}", 301);
+        }
+
         return view('events.show', compact('event'));
     }
 }
