@@ -107,18 +107,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const AUTOPLAY_DELAY = 6000;
             const progressBar = document.querySelector('.swiper-progress-bar');
             const counter = document.querySelector('.swiper-slide-counter');
 
             const swiper = new Swiper('.mySwiper', {
                 effect: 'fade',
                 fadeEffect: { crossFade: true },
-                speed: 900,
+                speed: 800,
                 parallax: true,
                 loop: true,
                 autoplay: {
-                    delay: AUTOPLAY_DELAY,
+                    delay: 4000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },
@@ -132,36 +131,21 @@
                 },
             });
 
-            // Autoplay progress bar
-            function resetProgress() {
-                if (!progressBar) return;
-                progressBar.style.transition = 'none';
-                progressBar.style.transform = 'scaleX(0)';
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        progressBar.style.transition = `transform ${AUTOPLAY_DELAY}ms linear`;
-                        progressBar.style.transform = 'scaleX(1)';
-                    });
-                });
-            }
+            // Progress bar — driven by Swiper's own autoplayTimeLeft event (fires every frame).
+            // progress: 1.0 = just started, 0.0 = about to advance.
+            swiper.on('autoplayTimeLeft', function (s, timeLeft, progress) {
+                if (progressBar) {
+                    progressBar.style.transform = `scaleX(${1 - progress})`;
+                }
+            });
 
             // Slide counter
             function updateCounter() {
                 if (!counter) return;
-                const realIndex = swiper.realIndex + 1;
-                counter.textContent = String(realIndex).padStart(2, '0');
+                counter.textContent = String(swiper.realIndex + 1).padStart(2, '0');
             }
 
-            swiper.on('slideChange', () => {
-                resetProgress();
-                updateCounter();
-            });
-
-            swiper.on('autoplayPause', () => {
-                if (progressBar) progressBar.style.animationPlayState = 'paused';
-            });
-
-            resetProgress();
+            swiper.on('slideChange', updateCounter);
             updateCounter();
         });
     </script>
