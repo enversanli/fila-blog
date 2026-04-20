@@ -2,6 +2,10 @@
 @section('description', "Almanya genelinde gerçekleşen 2026 Türk konserleri, festivaller, çocuk etkinlikleri ve daha fazlasını kolayca bulun. Sizde Türk etkinliklerine katılın.")
 @section('head')
     <link rel="canonical" href="{{ url('/etkinlikler') }}">
+    {{-- Filtered / paginated variants must not compete in search --}}
+    @if(request()->hasAny(['city', 'category', 'type', 'price', 'page']))
+        <meta name="robots" content="noindex, follow">
+    @endif
 @endsection
 
 <x-blog-layout>
@@ -49,6 +53,7 @@
 
                     <a href="{{ $eventUrl }}"
                        target="{{ $isExternal ? '_blank' : '_self' }}"
+                       @if($isExternal) rel="noopener noreferrer" @endif
                        class="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
 
                         {{-- Image --}}
