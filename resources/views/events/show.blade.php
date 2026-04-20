@@ -1,11 +1,10 @@
 @section('head')
-    @php
-        $isBerlinEvent = !empty($event->city) && strtolower($event->city->slug) === 'berlin';
-        $canonicalUrl = $isBerlinEvent
-            ? "https://www.berlindeyiz.de/etkinlikler/{$event->slug}"
-            : url("/etkinlikler/{$event->slug}");
-    @endphp
-    <link rel="canonical" href="{{ $canonicalUrl }}">
+    {{--
+        Berlin events are 301-redirected to berlindeyiz.de in the controller before this
+        view ever renders on almanyadayız.de, so the canonical here is always self-referencing.
+        On berlindeyiz.de, the host check in the controller is skipped and this renders correctly.
+    --}}
+    <link rel="canonical" href="{{ url("/etkinlikler/{$event->slug}") }}">
 @endsection
 
 @php
