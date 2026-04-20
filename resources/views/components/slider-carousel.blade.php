@@ -91,7 +91,7 @@
 
             {{-- Autoplay progress bar --}}
             <div class="absolute bottom-0 left-0 right-0 z-30 h-0.5 bg-white/10">
-                <div class="swiper-progress-bar h-full bg-orange-500 origin-left transition-none"></div>
+                <div class="swiper-progress-bar w-full h-full bg-orange-500 origin-left" style="transform: scaleX(0)"></div>
             </div>
 
             {{-- Scroll hint --}}
