@@ -86,14 +86,15 @@
                                     </article>
 
                                     @if($post->redirect_url)
+                                        @php $postRedirectUrl = $post->redirect_url; $postRedirectPlatform = $post->redirect_platform; @endphp
                                         <div class="mt-10 flex justify-center">
-                                            <a href="{{ $post->redirect_url }}"
+                                            <a href="{{ $postRedirectUrl }}"
                                                target="_blank"
                                                rel="noopener noreferrer"
                                                class="inline-flex items-center gap-x-3 rounded-full bg-primary-600 px-8 py-4 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-primary-700 hover:shadow-lg">
                                                 <span>
-                                                    @if($post->redirect_platform)
-                                                        {{ collect(config('filamentblog.redirect_platforms', []))->get($post->redirect_platform)['label'] ?? $post->redirect_platform }} üzerinde görüntüle
+                                                    @if($postRedirectPlatform)
+                                                        {{ collect(config('filamentblog.redirect_platforms', []))->get($postRedirectPlatform)['label'] ?? $postRedirectPlatform }} üzerinde görüntüle
                                                     @else
                                                         Etkinliğe Git
                                                     @endif
@@ -162,6 +163,8 @@
                 </div>
             </div>
 
+            @php $postRedirectUrl = $post->redirect_url; $postRedirectPlatform = $post->redirect_platform; @endphp
+
             <div class="border-t border-slate-200 pt-10 mt-10">
                 <div class="relative mb-6 flex items-center gap-x-4 md:gap-x-8">
                     <h2 class="whitespace-nowrap text-lg md:text-xl font-semibold">
@@ -194,15 +197,15 @@
     </section>
     {!! $shareButton?->script_code !!}
 
-    @if($post->redirect_url)
+    @if($postRedirectUrl)
         <div class="fixed bottom-20 left-0 right-0 z-40 px-4 pb-2 sm:hidden">
-            <a href="{{ $post->redirect_url }}"
+            <a href="{{ $postRedirectUrl }}"
                target="_blank"
                rel="noopener noreferrer"
                class="flex w-full items-center justify-center gap-x-2 rounded-full bg-primary-600 py-3.5 text-sm font-semibold text-white shadow-lg">
                 <span>
-                    @if($post->redirect_platform)
-                        {{ collect(config('filamentblog.redirect_platforms', []))->get($post->redirect_platform)['label'] ?? $post->redirect_platform }} üzerinde görüntüle
+                    @if($postRedirectPlatform)
+                        {{ collect(config('filamentblog.redirect_platforms', []))->get($postRedirectPlatform)['label'] ?? $postRedirectPlatform }} üzerinde görüntüle
                     @else
                         Etkinliğe Git
                     @endif
