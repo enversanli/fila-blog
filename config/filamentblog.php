@@ -50,6 +50,17 @@ return [
             ],
         },
     ],
+    'redirect_platforms' => [
+        'berlindeyiz.de' => [
+            'label' => 'Berlindeyiz.de',
+            'base_url' => 'https://berlindeyiz.de',
+        ],
+        'bulurum.de' => [
+            'label' => 'Bulurum.de',
+            'base_url' => 'https://bulurum.de/tr',
+        ],
+    ],
+
     'recaptcha' => [
         'enabled' => false, // true or false
         'site_key' => env('RECAPTCHA_SITE_KEY'),
