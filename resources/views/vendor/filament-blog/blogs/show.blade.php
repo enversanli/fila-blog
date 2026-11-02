@@ -85,6 +85,26 @@
                                         {!! tiptap_converter()->asHTML($post->body, toc: true, maxDepth: 3) !!}
                                     </article>
 
+                                    @if($post->redirect_url)
+                                        <div class="mt-10 flex justify-center">
+                                            <a href="{{ $post->redirect_url }}"
+                                               target="_blank"
+                                               rel="noopener noreferrer"
+                                               class="inline-flex items-center gap-x-3 rounded-full bg-primary-600 px-8 py-4 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-primary-700 hover:shadow-lg">
+                                                <span>
+                                                    @if($post->redirect_platform)
+                                                        {{ collect(config('filamentblog.redirect_platforms', []))->get($post->redirect_platform)['label'] ?? $post->redirect_platform }} üzerinde görüntüle
+                                                    @else
+                                                        Etkinliğe Git
+                                                    @endif
+                                                </span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6m0 0H9m9 0v9"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    @endif
+
                                     @if($post->tags->count())
                                         <div class="pt-10">
                                             <span class="mb-3 block font-semibold">Etiketler</span>
