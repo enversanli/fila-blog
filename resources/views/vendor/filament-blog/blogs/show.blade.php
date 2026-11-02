@@ -195,24 +195,22 @@
     {!! $shareButton?->script_code !!}
 
     @if($post->redirect_url)
-        @push('mobile-cta')
-            <div class="fixed bottom-20 left-0 right-0 z-40 px-4 pb-2 sm:hidden">
-                <a href="{{ $post->redirect_url }}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="flex w-full items-center justify-center gap-x-2 rounded-full bg-primary-600 py-3.5 text-sm font-semibold text-white shadow-lg">
-                    <span>
-                        @if($post->redirect_platform)
-                            {{ collect(config('filamentblog.redirect_platforms', []))->get($post->redirect_platform)['label'] ?? $post->redirect_platform }} üzerinde görüntüle
-                        @else
-                            Etkinliğe Git
-                        @endif
-                    </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6m0 0H9m9 0v9"/>
-                    </svg>
-                </a>
-            </div>
-        @endpush
+        <div class="fixed bottom-20 left-0 right-0 z-40 px-4 pb-2 sm:hidden">
+            <a href="{{ $post->redirect_url }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex w-full items-center justify-center gap-x-2 rounded-full bg-primary-600 py-3.5 text-sm font-semibold text-white shadow-lg">
+                <span>
+                    @if($post->redirect_platform)
+                        {{ collect(config('filamentblog.redirect_platforms', []))->get($post->redirect_platform)['label'] ?? $post->redirect_platform }} üzerinde görüntüle
+                    @else
+                        Etkinliğe Git
+                    @endif
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6m0 0H9m9 0v9"/>
+                </svg>
+            </a>
+        </div>
     @endif
 </x-blog-layout>
